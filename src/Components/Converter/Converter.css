@@ -1,0 +1,111 @@
+/* .home_page_height{
+     height: 90vh; 
+} */
+.cloud_file_converter{
+    font-size: 2.8rem;
+    color: black;
+    font-weight: 600;
+    font-style: normal;
+    font-family: 'Poppins';
+}
+.file_converter_description{
+    color: rgb(140, 141, 143);
+    font-size: 1.1rem;
+    font-style: normal;
+    font-weight: 400;
+    font-family: 'Poppins';
+    text-align: center;
+}
+  .image_upload_click {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 200px; /* Adjust as needed */
+    width: 100%;
+    border: 2px dashed #3F80FF; /* Visible border color */
+    border-radius: 10px;
+    background-color: #F3F7FF; /* Ensure good contrast with text color */
+    color: #3F80FF; /* Text color */
+    cursor: pointer;
+    margin-top: 20px; /* Spacing from top, adjust as needed */
+}
+/* .row{
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+} */
+p {
+  color: inherit; /* This makes sure your paragraph text color matches the container if not explicitly set */
+}
+  .select_files_text {
+    font-family: "Poppins";
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #3F80FF;
+  }
+  .selected_file_preview{
+    border: 1px solid rgb(204, 203, 203);
+    border-radius: 5px;
+  }
+  .file_name_preview{
+    font-size: 1.05rem;
+    color: rgb(115, 115, 113);
+    font-weight: 400;
+    font-family: "Poppins";
+    width: 270px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+  }
+  .center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .file_name{
+    font-size: 1.05rem;
+    color: rgb(115, 115, 113);
+    font-weight: 400;
+    font-family: "Poppins";
+  }
+  .css-5xe99f-MuiLinearProgress-bar1{
+    background-color: #3F80FF !important;
+    border-radius: 3px !important;
+  }
+  .css-eglki6-MuiLinearProgress-root{
+    background-color: #FCF6F5 !important;
+    border-radius: 3px !important;
+  }
+  .download_btn{
+    background-color: #3F80FF;
+    border: none;
+    color: white;
+    border-radius: 30px;
+  }
+  .add_more_files{
+    color: #797877;
+    font-weight: 500 !important;
+  }
+  .upload_button{
+    background-color: #3F80FF !important;
+    border: none;
+    color: white;
+    opacity: 100%;
+    padding: 6px;
+    padding-inline: 10px;
+    align-self: center;
+    margin-left: 50px;
+    border-radius: 20px;
+    font-family: 'Poppins';
+}
+/********************* Media Queries *************************/
+@media only screen and (max-width:5000px) and (min-width:992px){
+    .file_converter_description{
+        margin-left: 240px;
+        margin-right: 240px;
+    }
+}
