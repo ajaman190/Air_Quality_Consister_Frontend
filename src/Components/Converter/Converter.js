@@ -3,8 +3,6 @@ import LinearProgress from '@mui/material/LinearProgress';
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import GraphComponent from "./Graph";
-// Assume a GraphComponent exists for rendering your graph
-// import GraphComponent from './GraphComponent';
 
 
 const Converter = () => {
@@ -44,7 +42,7 @@ const Converter = () => {
             try {
                 const headers = { 'Content-Type': 'text/csv' };
                 await axios.put(uploadUrl, selectedFile, { headers });
-                await axios.post(`http://127.0.0.1:8000/api/v1/air-quality/mark-upload-complete/${taskId}/`);
+                await axios.post(`http://127.0.0.1:8000/api/v1/air-quality/mark-upload-complete/`, { task_id: taskId });
                 setUploading(false);
             } catch (error) {
                 console.error('Error uploading file:', error);
