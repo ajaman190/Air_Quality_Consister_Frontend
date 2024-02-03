@@ -10,6 +10,7 @@ const Converter = () => {
     const [uploadUrl, setUploadUrl] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
     const [uploading, setUploading] = useState(false);
+    const [fileUploaded, setFileUploaded] = useState(false);
     const [processing, setProcessing] = useState(false);
     const [processedDataUrl, setProcessedDataUrl] = useState('');
     const [unprocessedDataUrl, setUnprocessedDataUrl] = useState('');
@@ -44,6 +45,8 @@ const Converter = () => {
                 await axios.put(uploadUrl, selectedFile, { headers });
                 await axios.post(`http://127.0.0.1:8000/api/v1/air-quality/mark-upload-complete/`, { task_id: taskId });
                 setUploading(false);
+                setFileUploaded(true);
+                console.log("Uploaded")
             } catch (error) {
                 console.error('Error uploading file:', error);
                 setUploading(false);
@@ -58,6 +61,7 @@ const Converter = () => {
             setProcessedDataUrl(response.data.data.processed_file_url);
             setUnprocessedDataUrl(response.data.data.unprocessed_file_url);
             setProcessing(false);
+            console.log(response)
         } catch (error) {
             console.error('Error processing file:', error);
             setProcessing(false);
@@ -89,15 +93,17 @@ const Converter = () => {
                             <p>Click or Drop your CSV Dataset</p>
                         </div>
                     }
-                    {selectedFile && !uploading && !processing &&
+                    {selectedFile && !uploading && !processing && !fileUploaded &&
                         <div className="image_upload_click">
                             <p>Selected file: {selectedFile.name}</p>
                             <button className="upload_button" onClick={handleFileUpload}>Upload</button>
                         </div>
                     }
                     {(uploading || processing) && <LinearProgress />}
-                    {!uploading && !processing && selectedFile && processedDataUrl !== '' &&
-                        <button className="process_btn" onClick={startProcessing}>Start Processing</button>
+                    {!uploading && !processing && selectedFile && fileUploaded &&
+                        <div className="image_upload_click">
+                            <button className="upload_button" onClick={startProcessing}>Start Processing</button>
+                        </div>
                     }
                     {processedDataUrl !== '' &&
                         <div>
